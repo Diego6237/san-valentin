@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para ti, Guillita ✨</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .message {
+            font-size: 1.5rem;
+            font-weight: bold;
+            max-width: 70%;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            animation: textGlow 2s infinite alternate;
+        }
+
+        @keyframes textGlow {
+            0% { text-shadow: 0 0 5px #ff4d4d; }
+            100% { text-shadow: 0 0 15px #ff4d4d; }
+        }
+
+        .flower-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .flower {
+            width: 150px;
+            position: absolute;
+            bottom: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: bottom 2s ease-in-out;
+            display: none;
+        }
+
+        .heart {
+            position: absolute;
+            color: red;
+            font-size: 24px;
+            animation: floatUp 4s infinite linear;
+        }
+
+        .background-heart {
+            position: absolute;
+            color: rgba(255, 0, 0, 0.2);
+            font-size: 100px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-100vh); opacity: 0; }
+        }
+
+        @keyframes pulse {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+            100% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background-heart">❤️</div>
+
+    <div class="message">
+        Mi niña ✨, soy muy afortunado de tenerte en mi vida.  
+        Quiero que seas mi San Valentín este 14 de febrero porque eres una persona muy especial para mí.  
+        Ya sé que somos novios, pero eso no quita que quiera pedirte una y otra vez que si quieres pasar una velada conmigo.  
+    </div>
+
+    <div class="flower-container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Rosa_Red_Chateau01.jpg/640px-Rosa_Red_Chateau01.jpg" alt="Flor" class="flower" id="flor">
+    </div>
+
+    <script>
+        function crearCorazones() {
+            for (let i = 0; i < 20; i++) {
+                let heart = document.createElement("div");
+                heart.innerHTML = "💖";
+                heart.classList.add("heart");
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+                heart.style.fontSize = (Math.random() * 20 + 20) + "px";
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 4000);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            var flor = document.getElementById("flor");
+            flor.style.display = "block";
+            setTimeout(() => {
+                flor.style.bottom = "50px";
+            }, 100);
+
+            setInterval(crearCorazones, 800);
+        });
+    </script>
+
+</body>
+</html>
